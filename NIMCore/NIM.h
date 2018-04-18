@@ -4,7 +4,7 @@
 #include <WinSock2.h>
 #include <string>
 
-static char TicTacToe_UDPPORT[] = "28900";			// Port number used by TicTacToe servers
+static char TicTacToe_UDPPORT[] = "29333";			// Port number used by TicTacToe servers
 
 #define TicTacToe_QUERY  "Who?"
 #define TicTacToe_NAME	 "Name="
