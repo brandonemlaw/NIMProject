@@ -4,11 +4,11 @@
 #include <WinSock2.h>
 #include <string>
 
-static char TicTacToe_UDPPORT[] = "28900";			// Port number used by TicTacToe servers
+static char NIM_UDPPORT[] = "29333";			// Port number used by TicTacToe servers
 
-#define TicTacToe_QUERY  "Who?"
-#define TicTacToe_NAME	 "Name="
-#define TicTacToe_CHALLENGE "Player="
+#define NIM_QUERY  "Who?"
+#define NIM_NAME	 "Name="
+#define NIM_CHALLENGE "Player="
 
 const int v4AddressSize = 16;
 const int portNumberSize = 10;
@@ -40,7 +40,7 @@ int UDP_send(SOCKET, char*, int, const char*, const char*);
 int wait(SOCKET, int, int);
 char* timestamp();
 int getServers(SOCKET, char*, char*, ServerStruct[]);
-int playTicTacToe(SOCKET, std::string, std::string, std::string, int);
+int playNIM(SOCKET, std::string, std::string, std::string, int);
 int serverMain(int, char *argv[], std::string);
 int clientMain(int, char *argv[], std::string);
 int getIPAddressInfo(char*, char*);
