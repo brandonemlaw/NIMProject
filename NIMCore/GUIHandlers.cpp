@@ -1,13 +1,13 @@
 //GUIHandlers.cpp
 #include <bitset>
-
+#include "GUIHandlers.h"
 extern "C"
 {
-	//Is called by the GUI to get a list of servers
-	__declspec(dllexport) char* __stdcall GUI_getServerList() {
-		//TODO change number of result size
-		char result[5000] = "Test\nTest2\nTest3";
-		return result;
+	
+	//Is called by the GUI to populate a list of servers
+	__declspec(dllexport) void __stdcall GUI_getServerList(char* serverList[], int length)
+	{
+		5;
 	}
 
 	//Is called by the GUI to challenge a certain server
@@ -36,14 +36,14 @@ extern "C"
 
 	//Is called by the GUI to check for and get the next new message
 	//NULL indicates no new messages
-	__declspec(dllexport) char* __stdcall GUI_getMessage() {
-		char* result = NULL;
-		return result;
+	__declspec(dllexport) bool __stdcall GUI_getMessage(char* message[], int length) {
+		bool success = false;
+		return success;
 	}
 
 	//Is called by the GUI to get a copy of the board
-	__declspec(dllexport) unsigned long long* __stdcall GUI_getBoard() {
-		unsigned long long result[9];
+	__declspec(dllexport) BoardReturn __stdcall GUI_getBoard() {
+		BoardReturn result;
 		return result;
 	}
 

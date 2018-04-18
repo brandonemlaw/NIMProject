@@ -16,5 +16,11 @@ namespace NIM
         {
             InitializeComponent();
         }
-    }
+
+        private void myNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+}
 }
