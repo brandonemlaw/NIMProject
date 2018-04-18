@@ -111,7 +111,7 @@
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "NIM";
             this.ResumeLayout(false);
             this.PerformLayout();
 
