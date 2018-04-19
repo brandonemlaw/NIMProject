@@ -78,7 +78,6 @@ char* selectAIMove(bitset<5> board[], int numRows) {
 		bitset<5> target = nimSum ^ board[i];
 		if (target.to_ulong() < board[i].to_ulong()) {
 			moveAmount = board[i].to_ulong() - target.to_ulong();
-			moveAmount = log2(moveAmount)+1;
 			noMove = false;
 			_itoa_s(i+1,moveRow,10);
 		}
