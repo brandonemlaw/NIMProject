@@ -6,27 +6,76 @@
 #include <WinSock2.h>
 #include <iostream>
 #include <string>
+#include <time.h>
+#include <random>
 
-void initializeBoard(char board[10])
+using namespace std;
+
+void initializeBoardHost(char board[MAX_PIECES])
 {
-	char initBoard[10] = { '0','1','2','3','4','5','6','7','8','9' };
-	for (int i = 0; i<10; i++)
-		board[i] = initBoard[i];
+	srand(time(NULL));
+	int numRows, numRocks, index;
+	index = 0;
+	numRows = (rand() % 7) + 3;
+	for (int i = 0; i < numRows; i++)
+	{
+		numRocks = (rand() % 20) + 1;
+		for (int j = 0; j < numRocks; j++)
+		{
+			board[index] = '*';
+			index++;
+		}
+		board[index] = '\n';
+		index++;
+	}
 }
 
-void updateBoard(char board[10], int move, int Player)
+void initializeBoardClient(char board[MAX_PIECES], string boardFromClient)
 {
-	if (Player == X_PLAYER) {
-		board[move] = 'X';
+	int numRows, numRocks, index;
+	string buffer;
+	index = 0;
+	numRows = boardFromClient[0] - '0';
+	for (int i = 0; i < numRows; i++)
+	{
+		buffer = boardFromClient[i * 2 + 1] + boardFromClient[i * 2 + 2];
+		numRocks = atoi(buffer.c_str());
+		for (int j = 0; j < numRocks; j++)
+		{
+			board[index] = '*';
+			index++;
+		}
+		board[index] = '\n';
+		index++;
 	}
-	else if (Player == O_PLAYER) {
-		board[move] = 'O';
+}
+
+void updateBoard(char board[MAX_PIECES], string move, int Player, string &boardFromClient)
+{
+	int boardRows, boardRocks, moveRow, moveRocks;
+	boardRows = boardFromClient[0] - '0';
+	moveRow = move[0] - '0';
+	string buffer;
+	if (moveRow > 0 || moveRow < boardRows)
+	{
+		buffer = boardFromClient[moveRow * 2 + 1] + boardFromClient[moveRow * 2 + 2];
+		boardRocks = atoi(buffer.c_str());
+		buffer = move[2] + move[3];
+		moveRocks = atoi(buffer.c_str());
+		if (moveRocks > 0 || moveRocks < boardRocks)
+		{
+
+		}
+		else
+		{
+			cout << "Illegal move" << endl;
+		}
 	}
 	else
 		std::cout << "Problem with updateBoard function!" << std::endl;
 }
 
-void displayBoard(char board[10])
+void displayBoard(char board[MAX_PIECES])
 {
 	std::cout << std::endl;
 	std::cout << board[7] << " | " << board[8] << " | " << board[9] << std::endl;
@@ -37,7 +86,7 @@ void displayBoard(char board[10])
 	std::cout << std::endl;
 }
 
-int check4Win(char board[10])
+int check4Win(char board[MAX_PIECES])
 {
 	int winner = noWinner;
 
@@ -83,9 +132,9 @@ int check4Win(char board[10])
 	return winner;
 }
 
-int getMove(char board[10], int Player)
+string getMove(char board[MAX_PIECES], int Player)
 {
-	int move;
+	string move;
 	char move_str[80];
 
 	std::cout << "Where do you want to place your ";
@@ -123,7 +172,7 @@ int playNIM(SOCKET s, std::string serverName, std::string remoteIP, std::string 
 		myMove = false;
 	}
 
-	initializeBoard(board);
+	//initializeBoard(board);
 	displayBoard(board);
 
 	while (winner == noWinner) {
