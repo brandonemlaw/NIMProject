@@ -26,7 +26,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -115,6 +115,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="clientMain.cpp" />
+    <ClCompile Include="connectsock.cpp" />
+    <ClCompile Include="getIPAddressInfo.cpp" />
+    <ClCompile Include="getServers.cpp" />
+    <ClCompile Include="GUIHandlers.cpp" />
+    <ClCompile Include="NIM.cpp" />
+    <ClCompile Include="passivesock.cpp" />
+    <ClCompile Include="playNIM.cpp" />
+    <ClCompile Include="serverMain.cpp" />
+    <ClCompile Include="timestamp.cpp" />
+    <ClCompile Include="UDP_recv.cpp" />
+    <ClCompile Include="UDP_send.cpp" />
+    <ClCompile Include="wait.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GUIHandlers.h" />
+    <ClInclude Include="NIM.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
