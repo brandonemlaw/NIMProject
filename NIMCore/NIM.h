@@ -1,14 +1,15 @@
 // TicTacToe.h
 //
 // This header file establishes some constants that should be used in the TicTacToe project for COMP 311
+
 #include <WinSock2.h>
 #include <string>
 
 static char NIM_UDPPORT[] = "29333";			// Port number used by TicTacToe servers
 
-#define NIM_QUERY  "Who?"
-#define NIM_NAME	 "Name="
-#define NIM_CHALLENGE "Player="
+const char NIM_QUERY[10] = "Who?";
+const char NIM_NAME[10] = "Name=";
+const char NIM_CHALLENGE[10] = "Player=";
 
 const int v4AddressSize = 16;
 const int portNumberSize = 10;

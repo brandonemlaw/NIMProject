@@ -2,25 +2,13 @@
   connectsock.cpp
   getIPAddressInfo.cpp
   getServers.cpp
-c:\users\brandon\documents\github\nimproject\nimcore\getservers.cpp(34): error C2065: 'TicTacToe_QUERY': undeclared identifier
-c:\users\brandon\documents\github\nimproject\nimcore\getservers.cpp(34): error C2065: 'TicTacToe_UDPPORT': undeclared identifier
   GUIHandlers.cpp
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(9): error C2732: linkage specification contradicts earlier specification for 'GUI_getServerList'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(8): note: see declaration of 'GUI_getServerList'
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(14): error C2732: linkage specification contradicts earlier specification for 'GUI_challengeServer'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(14): note: see declaration of 'GUI_challengeServer'
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(20): error C2732: linkage specification contradicts earlier specification for 'GUI_setMyName'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(20): note: see declaration of 'GUI_setMyName'
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(26): error C2732: linkage specification contradicts earlier specification for 'GUI_isMyTurn'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(26): note: see declaration of 'GUI_isMyTurn'
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(32): error C2732: linkage specification contradicts earlier specification for 'GUI_sendMessage'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(32): note: see declaration of 'GUI_sendMessage'
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(39): error C2732: linkage specification contradicts earlier specification for 'GUI_getMessage'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(39): note: see declaration of 'GUI_getMessage'
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(45): error C2732: linkage specification contradicts earlier specification for 'GUI_getBoard'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(45): note: see declaration of 'GUI_getBoard'
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(51): error C2732: linkage specification contradicts earlier specification for 'GUI_makeMove'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(51): note: see declaration of 'GUI_makeMove'
+c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(20): error C2733: 'GUI_setMyName': second C linkage of overloaded function not allowed
+  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.h(21): note: see declaration of 'GUI_setMyName'
+c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(32): error C2733: 'GUI_sendMessage': second C linkage of overloaded function not allowed
+  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.h(23): note: see declaration of 'GUI_sendMessage'
+c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(39): error C2733: 'GUI_getMessage': second C linkage of overloaded function not allowed
+  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.h(24): note: see declaration of 'GUI_getMessage'
   NIM.cpp
 c:\users\brandon\documents\github\nimproject\nimcore\nim.cpp(13): warning C4326: return type of 'main' should be 'int' instead of 'void'
   passivesock.cpp

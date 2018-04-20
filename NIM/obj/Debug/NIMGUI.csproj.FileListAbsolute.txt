@@ -1,0 +1,13 @@
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\bin\Debug\NIM.exe.config
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\bin\Debug\NIM.exe
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\bin\Debug\NIM.pdb
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\obj\Debug\NIMGUI.csprojResolveAssemblyReference.cache
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\obj\Debug\NIM.Properties.Resources.resources
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\obj\Debug\NIMGUI.csproj.GenerateResource.cache
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\obj\Debug\NIMGUI.csproj.CoreCompileInputs.cache
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\obj\Debug\NIM.exe
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\obj\Debug\NIM.pdb
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\obj\Debug\NIM.NIMForm.resources
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIM.exe.config
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIM.exe
+C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIM.pdb
