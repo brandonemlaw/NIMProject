@@ -11,7 +11,6 @@ const char NIM_QUERY[10] = "Who?";
 const char NIM_NAME[10] = "Name=";
 const char NIM_CHALLENGE[10] = "Player=";
 
-const int MAX_PIECES = 20;
 
 const int v4AddressSize = 16;
 const int portNumberSize = 10;

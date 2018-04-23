@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GUIHandlers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="clientMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,16 +30,10 @@
     <ClCompile Include="getServers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GUIHandlers.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="NIM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="passivesock.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="playNIM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="serverMain.cpp">
@@ -54,12 +51,21 @@
     <ClCompile Include="wait.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="playNIM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NIMController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NIM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GUIHandlers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NIMController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
