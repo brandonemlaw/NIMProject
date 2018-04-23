@@ -16,7 +16,7 @@ int serverMain(int argc, char *argv[], std::string playerName)
 	s = passivesock(NIM_UDPPORT, "udp");
 
 	std::cout << std::endl << "Waiting for a challenge..." << std::endl;
-	int len = UDP_recv(s, buffer, MAX_RECV_BUF, (char*)host.c_str(), (char*)port.c_str());
+	int len = UDP_recv(s, buffer, sizeof(buffer) - 1, (char*)host.c_str(), (char*)port.c_str());
 	std::cout << timestamp() << " - Received: " << buffer << std::endl;
 
 	bool finished = false;
@@ -50,7 +50,7 @@ int serverMain(int argc, char *argv[], std::string playerName)
 			bool newDatagram = false;
 			int status = wait(s, 1, 0);	// We'll wait a second to see if we receive another datagram
 			while (!newDatagram && status > 0) {
-				len = UDP_recv(s, buffer, MAX_RECV_BUF, (char*)host.c_str(), (char*)port.c_str());
+				len = UDP_recv(s, buffer, sizeof(buffer) - 1, (char*)host.c_str(), (char*)port.c_str());
 				std::cout << timestamp() << " - Received: " << buffer << std::endl;
 				if (strcmp(buffer, previousBuffer) == 0 &&		// If this datagram is identical to previous one, ignore it.
 					host == previousHost &&
@@ -64,7 +64,7 @@ int serverMain(int argc, char *argv[], std::string playerName)
 
 			// If we waited one (or more seconds) and received no new datagrams, wait for one now.
 			if (!newDatagram) {
-				len = UDP_recv(s, buffer, MAX_RECV_BUF, (char*)host.c_str(), (char*)port.c_str());
+				len = UDP_recv(s, buffer, sizeof(buffer) - 1, (char*)host.c_str(), (char*)port.c_str());
 				std::cout << timestamp() << " - Received: " << buffer << std::endl;
 			}
 		}

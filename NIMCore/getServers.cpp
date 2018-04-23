@@ -47,7 +47,7 @@ int getServers(SOCKET s, char *broadcastAddress, char *broadcastPort, ServerStru
 		Task 4a: Add code here that will receive a response to the broadcast message
 		****/
 
-		UDP_recv(s, recvBuffer, MAX_RECV_BUF, host, port);
+		UDP_recv(s, recvBuffer, sizeof(recvBuffer) - 1, host, port);
 
 		char buffer[MAX_RECV_BUF - 1] = " ";
 
@@ -83,7 +83,7 @@ int getServers(SOCKET s, char *broadcastAddress, char *broadcastPort, ServerStru
 			// Now, we'll see if there is another response.
 			status = wait(s, 2, 0);
 			if (status > 0)
-				len = UDP_recv(s, recvBuffer, MAX_RECV_BUF, host, port);
+				len = UDP_recv(s, recvBuffer, sizeof(recvBuffer) - 1, host, port);
 		}
 	}
 	return numServers;
