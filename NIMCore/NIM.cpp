@@ -10,7 +10,7 @@ void setupBoard();
 string getMove();
 char * selectAIMove(bitset<5> board[], int);
 
-void main() {
+int main() {
 
 	bool gameover = false;
 	string move;

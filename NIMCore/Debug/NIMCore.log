@@ -10,9 +10,52 @@ c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(32): error 
 c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(39): error C2733: 'GUI_getMessage': second C linkage of overloaded function not allowed
   c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.h(24): note: see declaration of 'GUI_getMessage'
   NIM.cpp
-c:\users\brandon\documents\github\nimproject\nimcore\nim.cpp(13): warning C4326: return type of 'main' should be 'int' instead of 'void'
   passivesock.cpp
   playNIM.cpp
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(148): error C2677: binary '[': no global operator found which takes type 'std::string' (or there is no acceptable conversion)
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(148): error C2088: '[': illegal for class
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(148): error C2593: 'operator =' is ambiguous
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(2464): note: could be 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem)'
+          with
+          [
+              _Elem=char
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(2459): note: or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem *const )'
+          with
+          [
+              _Elem=char
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(2430): note: or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(2391): note: or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::initializer_list<_Elem>)'
+          with
+          [
+              _Elem=char
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(2266): note: or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&) noexcept(<expr>)'
+  c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(148): note: while trying to match the argument list '(std::string, int)'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2678: binary '<': no operator found which takes a left-hand operand of type 'std::string' (or there is no acceptable conversion)
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\system_error(405): note: could be 'bool std::operator <(const std::error_condition &,const std::error_condition &) noexcept'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\system_error(398): note: or       'bool std::operator <(const std::error_code &,const std::error_code &) noexcept'
+  c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): note: while trying to match the argument list '(std::string, int)'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2784: 'bool std::operator >(const std::vector<_Ty,_Alloc> &,const std::vector<_Ty,_Alloc> &)': could not deduce template argument for 'const std::vector<_Ty,_Alloc> &' from 'std::string'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\vector(2111): note: see declaration of 'std::operator >'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2784: 'bool std::operator >(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *const )': could not deduce template argument for 'const _Elem *const ' from 'int'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(4206): note: see declaration of 'std::operator >'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2784: 'bool std::operator >(const _Elem *const ,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'const _Elem *const ' from 'std::string'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(4196): note: see declaration of 'std::operator >'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2784: 'bool std::operator >(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &) noexcept': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'int'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(4186): note: see declaration of 'std::operator >'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2784: 'bool std::operator >(const std::move_iterator<_RanIt> &,const std::move_iterator<_RanIt2> &)': could not deduce template argument for 'const std::move_iterator<_RanIt> &' from 'std::string'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xutility(2325): note: see declaration of 'std::operator >'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2784: 'bool std::operator >(const std::reverse_iterator<_RanIt> &,const std::reverse_iterator<_RanIt2> &)': could not deduce template argument for 'const std::reverse_iterator<_RanIt> &' from 'std::string'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xutility(1456): note: see declaration of 'std::operator >'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2784: 'bool std::operator >(const std::pair<_Ty1,_Ty2> &,const std::pair<_Ty1,_Ty2> &)': could not deduce template argument for 'const std::pair<_Ty1,_Ty2> &' from 'std::string'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\utility(337): note: see declaration of 'std::operator >'
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(149): error C2676: binary '>': 'std::string' does not define this operator or a conversion to a type acceptable to the predefined operator
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(181): error C2440: '=': cannot convert from 'std::string' to 'int'
+  c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(181): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(183): error C2660: 'updateBoard': function does not take 3 arguments
   serverMain.cpp
   timestamp.cpp
   UDP_recv.cpp
