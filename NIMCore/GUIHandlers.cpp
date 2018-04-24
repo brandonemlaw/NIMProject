@@ -2,15 +2,42 @@
 #include <bitset>
 #include "GUIHandlers.h"
 
-	
+NIMController* NIMController::myNIMController = NULL;
+
 	//Is called by the GUI to populate a list of servers
-extern "C" __declspec(dllexport) void __stdcall GUI_getServerList(char serverList[], int length)
+extern "C" __declspec(dllexport) void __stdcall GUI_getServerList(char serverList[])
 	{
+	//TODO: NOTICE::::: socket cannot be created!!!????
+	
+		//Define the result
+		char result[SERVER_LIST_LENGTH] = "";
 
-		char test[5000] = "Test1\nTest2\nBilly\nBob\nJoe\n";
+		//Get the controller
+		NIMController& c = NIMController::getNIMController();
+
+		//Prepare the variables
+		char broadcastAddress[v4AddressSize];
+		char myIPAddress[v4AddressSize];
+		int status = getIPAddressInfo(myIPAddress, broadcastAddress);
+		if (status == 0) {
+			//Get the servers info
+			int numServers = getServers(c.s, broadcastAddress, NIM_UDPPORT, c.serverArray);
+
+			//Get the information for display
+			std::string temp = "";
+			for (int i = 0; i < numServers; i++)
+			{
+				temp += c.serverArray[i].name;
+				temp += "\n";
+			}
+			strcpy_s(serverList, SERVER_LIST_LENGTH, result);
+		}
+		else
+		{
+			strcpy_s(serverList, SERVER_LIST_LENGTH, "Test\nTest2\nTest3\n");
+		}
 
 
-		strcpy_s(serverList, 5000, test);
 	}
 
 	//Is called by the GUI to challenge a certain server

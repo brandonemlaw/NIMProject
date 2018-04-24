@@ -23,7 +23,7 @@ namespace NIM
     class NIMNetwork
     {
         [DllImport(@"NIMCore.dll")]
-        public static extern void GUI_getServerList(StringBuilder serverList, int length);
+        public static extern void GUI_getServerList(StringBuilder serverList);
 
         [DllImport(@"NIM.dll")]
         public static extern bool GUI_challengeServer(string serverName);

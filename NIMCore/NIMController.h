@@ -9,11 +9,17 @@
 class NIMController
 {
 public:
-	static SOCKET s;
+
+	static NIMController* myNIMController;
+	static NIMController& getNIMController();
+
+	SOCKET s;
+	ServerStruct serverArray[MAX_SERVERS];
+
 
 private:
-	//TODO: will be a singleton
 	NIMController();
 
 
 };
+

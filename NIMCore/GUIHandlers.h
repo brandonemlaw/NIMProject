@@ -2,6 +2,10 @@
 
 //GUI Handlers.h
 
+#include "NIMController.h"
+
+const int SERVER_LIST_LENGTH = 10000;
+
 struct BoardReturn
 {
 	unsigned long long row1 = 0;
@@ -16,7 +20,7 @@ struct BoardReturn
 };
 
 
-extern "C" __declspec(dllexport) void __stdcall GUI_getServerList(char serverList[], int length);
+extern "C" __declspec(dllexport) void __stdcall GUI_getServerList(char serverList[]);
 extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(char serverName[]);
 extern "C" __declspec(dllexport) bool __stdcall GUI_setMyName(char name[]);
 extern "C" __declspec(dllexport) bool __stdcall GUI_isMyTurn();

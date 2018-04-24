@@ -41,7 +41,7 @@ namespace NIM
         {
             //Get the servers from the DLL
             StringBuilder serverList = new StringBuilder(SERVER_LIST_LENGTH);
-            NIMNetwork.GUI_getServerList(serverList, SERVER_LIST_LENGTH);
+            NIMNetwork.GUI_getServerList(serverList);
 
             //Separate the list
             String listResult = serverList.ToString();
