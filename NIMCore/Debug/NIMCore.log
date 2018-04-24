@@ -1,2 +1,8 @@
-﻿  GUIHandlers.cpp
+﻿  playNIM.cpp
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(80): warning C4101: 'j': unreferenced local variable
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(120): warning C4101: 'move_str': unreferenced local variable
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(144): warning C4101: 'move': unreferenced local variable
+c:\users\brandon\documents\github\nimproject\nimcore\playnim.cpp(142): warning C4101: 'board': unreferenced local variable
+     Creating library C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIMCore.lib and object C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIMCore.exp
   NIMCore.vcxproj -> C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIMCore.dll

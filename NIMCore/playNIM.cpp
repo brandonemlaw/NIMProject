@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void initializeBoardHost(char board[MAX_PIECES])
+void initializeBoardHost(char board[])
 {
 	srand(time(NULL));
 	int numRows, numRocks, index;
@@ -30,7 +30,7 @@ void initializeBoardHost(char board[MAX_PIECES])
 	}
 }
 
-void initializeBoardClient(char board[MAX_PIECES], string boardFromClient)
+void initializeBoardClient(char board[], string boardFromClient)
 {
 	int numRows, numRocks, index;
 	string buffer;
@@ -50,7 +50,7 @@ void initializeBoardClient(char board[MAX_PIECES], string boardFromClient)
 	}
 }
 
-void updateBoard(char board[MAX_PIECES], string move, int Player, string &boardFromClient)
+void updateBoard(char board[], string move, int Player, string &boardFromClient)
 {
 	int boardRows, boardRocks, moveRow, moveRocks;
 	boardRows = boardFromClient[0] - '0';
@@ -75,22 +75,23 @@ void updateBoard(char board[MAX_PIECES], string move, int Player, string &boardF
 		std::cout << "Problem with updateBoard function!" << std::endl;
 }
 
-void displayBoard(char board[MAX_PIECES], string &boardFromClient)
+void displayBoard(char board[], string &boardFromClient)
 {
 	int numRows, j;
 	numRows = boardFromClient[0] - '0';
 	for (int i = 1; i <= numRows; i++)
 	{
 		cout << "Row " << i << ":\t";
-		while (board[j] != '\n')
+		//TODO: Compiler error: using unitialized variable j????
+		//while (board[j] != '\n')
 		{
 			cout << '*';
-			j++;
+			//j++;
 		}
 	}
 }
 
-int check4Win(char board[MAX_PIECES], string &boardFromClient)
+int check4Win(char board[], string &boardFromClient)
 {
 	int winner = 0;
 	int numRows;
@@ -112,7 +113,7 @@ int check4Win(char board[MAX_PIECES], string &boardFromClient)
 	return winner;
 }
 
-string getMove(char board[MAX_PIECES], int Player)
+string getMove(char board[], int Player)
 {
 	string move, row, numRocks;
 	int rockNumber;
@@ -155,15 +156,20 @@ int playNIM(SOCKET s, std::string serverName, std::string remoteIP, std::string 
 	}
 
 	//initializeBoard(board);
-	displayBoard(board);
+	//TODO: displayBoard needs 2 parameters, not 1
+	//displayBoard(board);
 
 	while (winner == noWinner) {
 		if (myMove) {
 			// Get my move & display board
-			move = getMove(board, localPlayer);
+
+			//TODO: cannot save string directly into int. That is a compiler error.
+			//move = getMove(board, localPlayer);
 			std::cout << "Board after your move:" << std::endl;
-			updateBoard(board, move, localPlayer);
-			displayBoard(board);
+			//TODO: cannot put int directly into update board. This is also causing a compiler error.
+			//updateBoard(board, move, localPlayer);
+			//TODO: displayBoard needs 2 parameters, not 1
+			//displayBoard(board);
 
 			// Send move to opponent
 			/****
@@ -195,7 +201,8 @@ int playNIM(SOCKET s, std::string serverName, std::string remoteIP, std::string 
 			std::cout << timestamp() << " - No response from opponent.  Aborting the game..." << std::endl;
 		}
 		else {
-			winner = check4Win(board);
+			//TODO: displayBoard needs 2 parameters, not 1
+			//winner = check4Win(board);
 		}
 
 		if (winner == localPlayer)
