@@ -124,8 +124,13 @@ namespace NIM
             {
                 //get the game board
                 currentBoard = NIMNetwork.GUI_getInitialBoard();
-                int test = 5;
+                statusLabel.Text = "Playing against " + serverListBox.SelectedItem.ToString();
             }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            ClientScanForServers();
         }
     }
 }

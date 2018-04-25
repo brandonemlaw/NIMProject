@@ -21,7 +21,7 @@ public:
 
 	std::string host;
 	std::string port;
-	std::bitset<9> board;
+	std::bitset<5> board[9];
 	std::string getPacketFromOpponent();
 	bool getInitialBoard();
 

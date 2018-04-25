@@ -47,21 +47,9 @@ extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer) 
 		//Get the controller
 		NIMController& c = NIMController::getNIMController();
 
-
-		/*//Find the server index
-		int answer = -1;
-		for (int i = 0; (i < MAX_SERVERS) && answer == -1; i++)
-		{
-			//If a string match has been found
-			if (strcmp(c.serverArray[i].name.c_str(), myServerName) == 0)
-			{
-				answer = i + 1;
-			}
-		}*/
-
 		// Extract the opponent's info from the server[] array
 		std::string serverName;
-		serverName = c.serverArray[answer].name;		// Adjust for 0-based array
+		serverName = c.serverArray[answer].name;	
 		c.host = c.serverArray[answer].host;
 		c.port = c.serverArray[answer].port;
 
@@ -69,7 +57,7 @@ extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer) 
 		char buffer[MAX_SEND_BUF];
 		strcpy_s(buffer, NIM_CHALLENGE);
 		strcat_s(buffer, c.playerName.c_str());
-		int len = UDP_send(c.s, buffer, strlen(buffer) + 1, (char*)c.host.c_str(), (char*)c.port.c_str());
+		int len = UDP_send(c.s, buffer, strlen(buffer) + 1, c.host.c_str(), c.port.c_str());
 
 		//Wait for a response from the host
 		int challengeAccepted = -1;
@@ -88,11 +76,11 @@ extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer) 
 		
 
 		//if challenge is accepted, send great
-		if (challengeAccepted)
+		if (challengeAccepted == 1)
 		{
 			char buffer3[MAX_SEND_BUF];
 			strcpy_s(buffer3, NIM_GREAT);
-			int len2 = UDP_send(c.s, buffer3, strlen(buffer) + 1, (char*)c.host.c_str(), (char*)c.port.c_str());
+			int len2 = UDP_send(c.s, buffer3, strlen(buffer3) + 1, c.host.c_str(), c.port.c_str());
 
 			//wait for initial board
 			c.getInitialBoard();
@@ -185,15 +173,15 @@ extern "C" __declspec(dllexport) BoardReturn __stdcall GUI_getInitialBoard()
 	//Get the controller
 	NIMController& c = NIMController::getNIMController();
 
-	result.row1 = c.board[0];
-	result.row2 = c.board[1];
-	result.row3 = c.board[2];
-	result.row4 = c.board[3];
-	result.row5 = c.board[4];
-	result.row6 = c.board[5];
-	result.row7 = c.board[6];
-	result.row8 = c.board[7];
-	result.row9 = c.board[8];
+	result.row1 = c.board[0].to_ullong;
+	result.row2 = c.board[1].to_ullong;
+	result.row3 = c.board[2].to_ullong;
+	result.row4 = c.board[3].to_ullong;
+	result.row5 = c.board[4].to_ullong;
+	result.row6 = c.board[5].to_ullong;
+	result.row7 = c.board[6].to_ullong;
+	result.row8 = c.board[7].to_ullong;
+	result.row9 = c.board[8].to_ullong;
 
 	return result;
 }

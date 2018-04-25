@@ -35,6 +35,7 @@
             this.myNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gameBox = new System.Windows.Forms.GroupBox();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -64,6 +65,7 @@
             this.updateButton.TabIndex = 4;
             this.updateButton.Text = "Update List";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // serverListBox
             // 
@@ -93,18 +95,28 @@
             // 
             // gameBox
             // 
-            this.gameBox.Location = new System.Drawing.Point(395, 13);
+            this.gameBox.Location = new System.Drawing.Point(395, 51);
             this.gameBox.Name = "gameBox";
             this.gameBox.Size = new System.Drawing.Size(859, 453);
             this.gameBox.TabIndex = 8;
             this.gameBox.TabStop = false;
             this.gameBox.Text = "Current Game";
             // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(390, 12);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(86, 25);
+            this.statusLabel.TabIndex = 9;
+            this.statusLabel.Text = "Starting";
+            // 
             // NIMForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1281, 550);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.gameBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.myNameTextBox);
@@ -127,6 +139,7 @@
         private System.Windows.Forms.TextBox myNameTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gameBox;
+        private System.Windows.Forms.Label statusLabel;
     }
 }
 

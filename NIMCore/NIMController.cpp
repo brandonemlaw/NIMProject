@@ -17,13 +17,13 @@ NIMController::~NIMController()
 
 std::string NIMController::getPacketFromOpponent()
 {
-	
-	while (true)
-	{
+	int status = wait(s, WAIT_TIME, 0);
+	if (status > 0) {
+
 		char buffer[MAX_RECV_BUF];
 		char remoteHost[v4AddressSize] = "";
 		char remotePort[portNumberSize] = "";
-		int recieved = UDP_recv(s, buffer, MAX_RECV_BUF - 1, (char*)host.c_str(), (char*)port.c_str());
+		int recieved = UDP_recv(s, buffer, MAX_RECV_BUF - 1, remoteHost, remotePort);
 
 		if (recieved > 0)
 		{
@@ -32,8 +32,12 @@ std::string NIMController::getPacketFromOpponent()
 				return std::string(buffer);
 			}
 		}
-
 	}
+	else
+	{
+		return "";
+	}
+
 }
 
 bool NIMController::getInitialBoard()
@@ -46,10 +50,10 @@ bool NIMController::getInitialBoard()
 		return false;
 	}
 
-	for (int i = 1; i <= numberOfPiles && i <= 9; i+=2)
+	for (int i = 1; i <= numberOfPiles * 2 && i <= 9; i+=2)
 	{
-		int value = (result[i] - 48) * 10 + (result[i + 1] - 48);
-		board[(i/2) - 1] = value;
+		unsigned long long value = (result[i] - 48) * 10 + (result[i + 1] - 48);
+		board[i / 2] ^= value;
 	}
 
 	return true;
