@@ -61,7 +61,7 @@ void makeMove(char * move) {
 }
 
 char* selectAIMove(bitset<5> board[], int numRows) {
-
+	
 	bitset<5> nimSum;
 	bool noMove = true;
 	int moveAmount;

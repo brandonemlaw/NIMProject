@@ -39,7 +39,7 @@ int getServers(SOCKET s, char *broadcastAddress, char *broadcastPort, ServerStru
 	// Receive incoming UDP datagrams (with a maximum of 2 second wait before each UDP_recv() function call
 	// As you read datagrams, if they start with the prefix: TicTacToe_NAME, parse out the server's name
 	// and add the name, host address and port number to serverArray[].  Don't forget to increment numServers.
-	int status = wait(s, 2, 0);
+	int status = wait(s, GET_SERVERS_WAIT, 0);
 	if (status > 0) {
 		int len = 1;
 		char recvBuffer[MAX_RECV_BUF + 1];
@@ -51,39 +51,19 @@ int getServers(SOCKET s, char *broadcastAddress, char *broadcastPort, ServerStru
 
 		UDP_recv(s, recvBuffer, sizeof(recvBuffer) - 1, host, port);
 
-		char buffer[MAX_RECV_BUF - 1] = " ";
-
 		while (status > 0 && len > 0) {
-			/****
-			Task 4b: Inside this while loop, extract a response, which should be a C-string that looks like "Name=some server's name".
-			If the response doesn't begin with the characters, "Name=", ignore it.
-			If it does begin with the characters, "Name=", parse the actual name that follows and
-			(i) assign that name to the array of structs, serverArray[numServers].name
-			(ii) assign the IP Address from which the response originated to serverArray[numServers].host
-			(iii) assign the server's port number to serverArray[numServers].port
-			(iv) increment numServers
-			****/
-
-			for (int i = 0; i < 5; i++)
+			
+			if (strncmp(recvBuffer, NIM_NAME, 5) == 0)
 			{
-				buffer[i] = recvBuffer[i];
-			}
-
-			if (_stricmp(buffer, "Name=") == 0)
-			{
-				for (int i = 5; recvBuffer[i] != '\0'; i++)
-				{
-					buffer[i - 5] = recvBuffer[i];
-					buffer[i - 4] = '\0';
-				}
-				serverArray[numServers].name = buffer;
+				serverArray[numServers].name = recvBuffer;
+				serverArray[numServers].name = serverArray[numServers].name.substr(5);
 				serverArray[numServers].host = host;
 				serverArray[numServers].port = port;
 				numServers++;
 			}
 
 			// Now, we'll see if there is another response.
-			status = wait(s, 2, 0);
+			status = wait(s, GET_SERVERS_WAIT, 0);
 			if (status > 0)
 				len = UDP_recv(s, recvBuffer, sizeof(recvBuffer) - 1, host, port);
 		}

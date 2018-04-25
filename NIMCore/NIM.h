@@ -13,13 +13,14 @@ const char NIM_CHALLENGE[10] = "Player=";
 const char NIM_ACCEPT[10] = "YES";
 const char NIM_GREAT[10] = "GREAT!";
 
-const int MAX_WAIT = 100;
+//const int MAX_WAIT = 100;
 
 
 const int v4AddressSize = 16;
 const int portNumberSize = 10;
 const int MAX_INTERFACES = 20;
 const int WAIT_TIME = 60;
+const int GET_SERVERS_WAIT = 4;
 const int MAX_SEND_BUF = 2048;
 const int MAX_RECV_BUF = 2048;
 const int MAX_SERVERS = 100;

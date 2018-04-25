@@ -1,28 +1,7 @@
 ﻿  GUIHandlers.cpp
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(176): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(176): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(176): note: There is no context in which this conversion is possible
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(177): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(177): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(177): note: There is no context in which this conversion is possible
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(178): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(178): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(178): note: There is no context in which this conversion is possible
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(179): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(179): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(179): note: There is no context in which this conversion is possible
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(180): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(180): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(180): note: There is no context in which this conversion is possible
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(181): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(181): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(181): note: There is no context in which this conversion is possible
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(182): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(182): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(182): note: There is no context in which this conversion is possible
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(183): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(183): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(183): note: There is no context in which this conversion is possible
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(184): error C3867: 'std::bitset<5>::to_ullong': non-standard syntax; use '&' to create a pointer to member
-c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(184): error C2440: '=': cannot convert from 'unsigned __int64 (__thiscall std::bitset<5>::* )(void) const' to 'unsigned __int64'
-  c:\users\brandon\documents\github\nimproject\nimcore\guihandlers.cpp(184): note: There is no context in which this conversion is possible
+  NIM.cpp
+  NIMController.cpp
+  Generating Code...
+c:\users\brandon\documents\github\nimproject\nimcore\nimcontroller.cpp(41): warning C4715: 'NIMController::getPacketFromOpponent': not all control paths return a value
+c:\users\brandon\documents\github\nimproject\nimcore\nim.cpp(96): warning C4172: returning address of local variable or temporary: AIMove
+  NIMCore.vcxproj -> C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIMCore.dll

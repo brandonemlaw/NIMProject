@@ -173,15 +173,15 @@ extern "C" __declspec(dllexport) BoardReturn __stdcall GUI_getInitialBoard()
 	//Get the controller
 	NIMController& c = NIMController::getNIMController();
 
-	result.row1 = c.board[0].to_ullong;
-	result.row2 = c.board[1].to_ullong;
-	result.row3 = c.board[2].to_ullong;
-	result.row4 = c.board[3].to_ullong;
-	result.row5 = c.board[4].to_ullong;
-	result.row6 = c.board[5].to_ullong;
-	result.row7 = c.board[6].to_ullong;
-	result.row8 = c.board[7].to_ullong;
-	result.row9 = c.board[8].to_ullong;
+	result.row1 = c.board[0].to_ullong();
+	result.row2 = c.board[1].to_ullong();
+	result.row3 = c.board[2].to_ullong();
+	result.row4 = c.board[3].to_ullong();
+	result.row5 = c.board[4].to_ullong();
+	result.row6 = c.board[5].to_ullong();
+	result.row7 = c.board[6].to_ullong();
+	result.row8 = c.board[7].to_ullong();
+	result.row9 = c.board[8].to_ullong();
 
 	return result;
 }
