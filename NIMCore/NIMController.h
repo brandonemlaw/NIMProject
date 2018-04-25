@@ -19,7 +19,7 @@ public:
 
 private:
 	NIMController();
-
+	~NIMController();
 
 };
 

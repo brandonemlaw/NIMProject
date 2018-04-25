@@ -31,7 +31,9 @@ int getServers(SOCKET s, char *broadcastAddress, char *broadcastPort, ServerStru
 	Task 3: Add code here that will send the TicTacToe_QUERY message to the broadcastAddress using the broadcastPort (see function header).
 	****/
 
-//	UDP_send(s, NIM_QUERY, MAX_SEND_BUF, broadcastAddress, NIM_UDPPORT);
+	char query[MAX_SEND_BUF - 1];
+	strcpy_s(query, MAX_SEND_BUF - 1, NIM_QUERY);
+	UDP_send(s, query, MAX_SEND_BUF, broadcastAddress, broadcastPort);
 
 
 	// Receive incoming UDP datagrams (with a maximum of 2 second wait before each UDP_recv() function call

@@ -10,7 +10,7 @@ extern "C" __declspec(dllexport) void __stdcall GUI_getServerList(char serverLis
 	//TODO: NOTICE::::: socket cannot be created!!!????
 	
 		//Define the result
-		char result[SERVER_LIST_LENGTH] = "";
+		//char result[SERVER_LIST_LENGTH] = "";
 
 		//Get the controller
 		NIMController& c = NIMController::getNIMController();
@@ -30,7 +30,7 @@ extern "C" __declspec(dllexport) void __stdcall GUI_getServerList(char serverLis
 				temp += c.serverArray[i].name;
 				temp += "\n";
 			}
-			strcpy_s(serverList, SERVER_LIST_LENGTH, result);
+			strcpy_s(serverList, SERVER_LIST_LENGTH, temp.c_str());
 		}
 		else
 		{
