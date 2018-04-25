@@ -95,9 +95,9 @@
             // 
             // gameBox
             // 
-            this.gameBox.Location = new System.Drawing.Point(395, 51);
+            this.gameBox.Location = new System.Drawing.Point(395, 56);
             this.gameBox.Name = "gameBox";
-            this.gameBox.Size = new System.Drawing.Size(859, 453);
+            this.gameBox.Size = new System.Drawing.Size(859, 448);
             this.gameBox.TabIndex = 8;
             this.gameBox.TabStop = false;
             this.gameBox.Text = "Current Game";

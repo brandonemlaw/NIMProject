@@ -51,7 +51,7 @@ bool NIMController::getInitialBoard()
 	}
 
 	//for each of the piles
-	for (int i = 1; i <= numberOfPiles * 2 && i <= 9; i+=2)
+	for (int i = 1; i <= numberOfPiles * 2; i+=2)
 	{
 		//get and set the number of stones
 		unsigned long long numberOfStones = (result[i] - 48) * 10 + (result[i + 1] - 48);

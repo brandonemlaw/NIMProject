@@ -27,6 +27,7 @@ namespace NIM
         //Class attributes
         Mode currentMode = Mode.Waiting;
         NIM.BoardReturn currentBoard;
+        bool isOpponentsTurn = false;
 
         public NIMForm()
         {
@@ -39,6 +40,34 @@ namespace NIM
             //Run initial scan for servers
             ClientScanForServers();
 
+        }
+
+        void SelectMove(int row, int number)
+        {
+            NIMNetwork.GUI_makeMove(row, number);
+            currentBoard = NIMNetwork.GUI_getBoard();
+            isOpponentsTurn = true;
+            UpdateDisplayBoard();
+        }
+
+        void UpdateDisplayBoard()
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                ulong stonesInRow = currentBoard.getRow(j);
+                for (ulong i = 0; i < stonesInRow; i++)
+                {
+                    RadioButton temp = new RadioButton();
+                    //temp.Location = new Point(100 + (int)i * 3, j * 3);
+                    int row = j;
+                    int stones = (int)(stonesInRow - i);
+                    temp.Location = new Point(5 + 20 * (int)i, 20 + 20 * j);
+                    temp.Size = new Size(20, 20);
+                    temp.Click += delegate { SelectMove(row, stones); };
+                    gameBox.Controls.Add(temp);
+                }
+                //gameBox.Controls.Add(row);
+            }
         }
 
         void ClientScanForServers()
@@ -125,6 +154,7 @@ namespace NIM
                 //get the game board
                 currentBoard = NIMNetwork.GUI_getInitialBoard();
                 statusLabel.Text = "Playing against " + serverListBox.SelectedItem.ToString();
+                UpdateDisplayBoard();
             }
         }
 
