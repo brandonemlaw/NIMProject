@@ -47,8 +47,6 @@ extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer) 
 		//Get the controller
 		NIMController& c = NIMController::getNIMController();
 
-		std::string host;
-		std::string port;
 
 		/*//Find the server index
 		int answer = -1;
@@ -64,14 +62,14 @@ extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer) 
 		// Extract the opponent's info from the server[] array
 		std::string serverName;
 		serverName = c.serverArray[answer].name;		// Adjust for 0-based array
-		host = c.serverArray[answer].host;
-		port = c.serverArray[answer].port;
+		c.host = c.serverArray[answer].host;
+		c.port = c.serverArray[answer].port;
 
 		// Append playerName to the TicTacToe_CHALLENGE string & send a challenge to host:port
 		char buffer[MAX_SEND_BUF];
 		strcpy_s(buffer, NIM_CHALLENGE);
 		strcat_s(buffer, c.playerName.c_str());
-		int len = UDP_send(c.s, buffer, strlen(buffer) + 1, (char*)host.c_str(), (char*)port.c_str());
+		int len = UDP_send(c.s, buffer, strlen(buffer) + 1, (char*)c.host.c_str(), (char*)c.port.c_str());
 
 		//Wait for a response from the host
 		int challengeAccepted = -1;
@@ -85,7 +83,7 @@ extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer) 
 			if (recieved > 0)
 			{
 				//if the port and host of source are correct
-				if (strcmp(remoteHost, host.c_str()) == 0 && strcmp(remotePort, port.c_str()) == 0)
+				if (strcmp(remoteHost, c.host.c_str()) == 0 && strcmp(remotePort, c.port.c_str()) == 0)
 				{
 					//if they accepted
 					if (strcmp(buffer2, NIM_ACCEPT) == 0)
@@ -105,7 +103,7 @@ extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer) 
 		//if challenge is accepted, send great
 		char buffer3[MAX_SEND_BUF];
 		strcpy_s(buffer3, NIM_GREAT);
-		int len2 = UDP_send(c.s, buffer3, strlen(buffer) + 1, (char*)host.c_str(), (char*)port.c_str());
+		int len2 = UDP_send(c.s, buffer3, strlen(buffer) + 1, (char*)c.host.c_str(), (char*)c.port.c_str());
 
 
 		return challengeAccepted;
@@ -139,6 +137,52 @@ __declspec(dllexport) bool __stdcall GUI_getMessage(char* message[], int length)
 	//Is called by the GUI to get a copy of the board
 extern "C" __declspec(dllexport) BoardReturn __stdcall GUI_getBoard() {
 		BoardReturn result;
+
+		std::cout << "Waiting for your opponent's move..." << std::endl << std::endl;
+
+		//Get the controller
+		NIMController& c = NIMController::getNIMController();
+
+
+		//Get opponent's move & display board
+		int status = wait(s, WAIT_TIME, 0);
+		if (status > 0) {
+			/****
+			Task 2: (i) Insert code inside this IF statement that will accept a null-terminated C-string from your
+			opponent that represents their move.  Convert that string to an integer and then
+			(ii) call a function that will update the game board (see above) using your opponent's move, and
+			(iii) call a function that will display the updated board on your screen.
+			****/
+			//i - get C-string and convert to integer
+			char moveString[MAX_RECV_BUF + 2];
+			char myRemoteIP[v4AddressSize + 2];
+			strcpy_s(myRemoteIP, v4AddressSize, c.host.c_str());
+
+			char myRemotePort[portNumberSize];
+			strcpy_s(myRemotePort, portNumberSize, c.port.c_str());
+
+			int bytesRecieved = UDP_recv(s, moveString, MAX_SEND_BUF, myRemoteIP, myRemotePort);
+			int move = atoi(moveString);
+
+
+/*
+			//ii - update the game board with opponent move
+			int remotePlayer = O_PLAYER;
+			if (localPlayer == O_PLAYER)
+			{
+				remotePlayer = X_PLAYER;
+			}
+			updateBoard(board, move, remotePlayer);
+
+			//iii - display the board
+			displayBoard(board);
+
+
+		}
+		else {
+			winner = ABORT;
+		}*/
+
 		return result;
 	}
 

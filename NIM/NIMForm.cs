@@ -12,9 +12,12 @@ using System.Windows.Forms;
 
 namespace NIM
 {
+    
+
 
     public partial class NIMForm : Form
     {
+
         //Constants
         private int SERVER_LIST_LENGTH = 10000;
 
@@ -23,7 +26,8 @@ namespace NIM
 
         //Class attributes
         Mode currentMode = Mode.Waiting;
-        
+        NIM.BoardReturn currentBoard;
+
         public NIMForm()
         {
             Application.Idle += HandleApplicationIdle;
@@ -116,7 +120,11 @@ namespace NIM
 
         private void connectButton_Click(object sender, EventArgs e)
         {
-            NIMNetwork.GUI_challengeServer(serverListBox.SelectedIndex);
+            if (NIMNetwork.GUI_challengeServer(serverListBox.SelectedIndex))
+            {
+                //get the game board
+                currentBoard = NIMNetwork.GUI_getBoard();
+            }
         }
     }
 }

@@ -17,6 +17,8 @@ public:
 	std::string playerName;
 	ServerStruct serverArray[MAX_SERVERS];
 
+	std::string host;
+	std::string port;
 
 private:
 	NIMController();
