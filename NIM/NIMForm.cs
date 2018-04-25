@@ -51,7 +51,7 @@ namespace NIM
             serverListBox.Items.Clear();
 
             //Add each server to the listBox
-            for (int i = 0; i < serverArray.Length; i++)
+            for (int i = 0; i < serverArray.Length - 1; i++)
             {
                 serverListBox.Items.Add(serverArray[i]);
             }
@@ -113,5 +113,10 @@ namespace NIM
 
 
         }
-}
+
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+            NIMNetwork.GUI_challengeServer(serverListBox.SelectedIndex);
+        }
+    }
 }

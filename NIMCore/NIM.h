@@ -10,6 +10,8 @@ static char NIM_UDPPORT[] = "29333";			// Port number used by TicTacToe servers
 const char NIM_QUERY[10] = "Who?";
 const char NIM_NAME[10] = "Name=";
 const char NIM_CHALLENGE[10] = "Player=";
+const char NIM_ACCEPT[10] = "YES";
+const char NIM_GREAT[10] = "GREAT!";
 
 
 const int v4AddressSize = 16;

@@ -14,6 +14,7 @@ public:
 	static NIMController& getNIMController();
 
 	SOCKET s;
+	std::string playerName;
 	ServerStruct serverArray[MAX_SERVERS];
 
 

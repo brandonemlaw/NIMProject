@@ -21,7 +21,7 @@ struct BoardReturn
 
 
 extern "C" __declspec(dllexport) void __stdcall GUI_getServerList(char serverList[]);
-extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(char serverName[]);
+extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer);
 extern "C" __declspec(dllexport) bool __stdcall GUI_setMyName(char name[]);
 extern "C" __declspec(dllexport) bool __stdcall GUI_isMyTurn();
 extern "C" __declspec(dllexport) bool __stdcall GUI_sendMessage(char message[]);
