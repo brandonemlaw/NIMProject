@@ -123,7 +123,8 @@ namespace NIM
             if (NIMNetwork.GUI_challengeServer(serverListBox.SelectedIndex))
             {
                 //get the game board
-                currentBoard = NIMNetwork.GUI_getBoard();
+                currentBoard = NIMNetwork.GUI_getInitialBoard();
+                int test = 5;
             }
         }
     }

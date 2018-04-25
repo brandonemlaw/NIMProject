@@ -15,6 +15,48 @@ NIMController::~NIMController()
 	WSACleanup();
 }
 
+std::string NIMController::getPacketFromOpponent()
+{
+	
+	while (true)
+	{
+		char buffer[MAX_RECV_BUF];
+		char remoteHost[v4AddressSize] = "";
+		char remotePort[portNumberSize] = "";
+		int recieved = UDP_recv(s, buffer, MAX_RECV_BUF - 1, (char*)host.c_str(), (char*)port.c_str());
+
+		if (recieved > 0)
+		{
+			if (strcmp(remoteHost, host.c_str()) == 0 && strcmp(remotePort, port.c_str()) == 0)
+			{
+				return std::string(buffer);
+			}
+		}
+
+	}
+}
+
+bool NIMController::getInitialBoard()
+{
+	std::string result = getPacketFromOpponent();
+
+	int numberOfPiles = (int)result[0] - 48;
+	if (numberOfPiles > 9 || numberOfPiles < 1)
+	{
+		return false;
+	}
+
+	for (int i = 1; i <= numberOfPiles && i <= 9; i+=2)
+	{
+		int value = (result[i] - 48) * 10 + (result[i + 1] - 48);
+		board[(i/2) - 1] = value;
+	}
+
+	return true;
+}
+
+
+
 NIMController::NIMController()
 {
 	WSADATA wsaData;

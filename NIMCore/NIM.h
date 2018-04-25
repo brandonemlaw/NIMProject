@@ -13,6 +13,8 @@ const char NIM_CHALLENGE[10] = "Player=";
 const char NIM_ACCEPT[10] = "YES";
 const char NIM_GREAT[10] = "GREAT!";
 
+const int MAX_WAIT = 100;
+
 
 const int v4AddressSize = 16;
 const int portNumberSize = 10;

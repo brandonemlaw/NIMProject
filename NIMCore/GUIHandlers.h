@@ -27,4 +27,5 @@ extern "C" __declspec(dllexport) bool __stdcall GUI_isMyTurn();
 extern "C" __declspec(dllexport) bool __stdcall GUI_sendMessage(char message[]);
 extern "C" __declspec(dllexport) bool __stdcall GUI_getMessage(char message[], int length);
 extern "C" __declspec(dllexport) BoardReturn __stdcall GUI_getBoard();
+extern "C" __declspec(dllexport) BoardReturn __stdcall GUI_getInitialBoard();
 extern "C" __declspec(dllexport) bool __stdcall GUI_makeMove(int row, int number);

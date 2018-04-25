@@ -44,6 +44,9 @@ namespace NIM
         public static extern BoardReturn GUI_getBoard();
 
         [DllImport(@"NIMCore.dll")]
+        public static extern BoardReturn GUI_getInitialBoard();
+
+        [DllImport(@"NIMCore.dll")]
         public static extern bool GUI_makeMove(int row, int number);
 
     }
