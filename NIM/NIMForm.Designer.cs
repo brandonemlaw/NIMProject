@@ -36,6 +36,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gameBox = new System.Windows.Forms.GroupBox();
             this.statusLabel = new System.Windows.Forms.Label();
+            this.ForfeitButton = new System.Windows.Forms.Button();
+            this.MessageTB = new System.Windows.Forms.TextBox();
+            this.MessageSendButton = new System.Windows.Forms.Button();
+            this.MessageTextBox = new System.Windows.Forms.Label();
+            this.MessageLabel = new System.Windows.Forms.Label();
+            this.AICheckBox = new System.Windows.Forms.CheckBox();
+            this.HostGameButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -97,7 +104,7 @@
             // 
             this.gameBox.Location = new System.Drawing.Point(395, 56);
             this.gameBox.Name = "gameBox";
-            this.gameBox.Size = new System.Drawing.Size(859, 448);
+            this.gameBox.Size = new System.Drawing.Size(859, 385);
             this.gameBox.TabIndex = 8;
             this.gameBox.TabStop = false;
             this.gameBox.Text = "Current Game";
@@ -111,11 +118,84 @@
             this.statusLabel.TabIndex = 9;
             this.statusLabel.Text = "Starting";
             // 
+            // ForfeitButton
+            // 
+            this.ForfeitButton.Location = new System.Drawing.Point(1118, 12);
+            this.ForfeitButton.Name = "ForfeitButton";
+            this.ForfeitButton.Size = new System.Drawing.Size(136, 48);
+            this.ForfeitButton.TabIndex = 10;
+            this.ForfeitButton.Text = "Forefeit";
+            this.ForfeitButton.UseVisualStyleBackColor = true;
+            this.ForfeitButton.Click += new System.EventHandler(this.ForfeitButton_Click);
+            // 
+            // MessageTB
+            // 
+            this.MessageTB.Location = new System.Drawing.Point(395, 507);
+            this.MessageTB.Name = "MessageTB";
+            this.MessageTB.Size = new System.Drawing.Size(735, 31);
+            this.MessageTB.TabIndex = 11;
+            // 
+            // MessageSendButton
+            // 
+            this.MessageSendButton.Location = new System.Drawing.Point(1136, 503);
+            this.MessageSendButton.Name = "MessageSendButton";
+            this.MessageSendButton.Size = new System.Drawing.Size(118, 39);
+            this.MessageSendButton.TabIndex = 12;
+            this.MessageSendButton.Text = "Send";
+            this.MessageSendButton.UseVisualStyleBackColor = true;
+            this.MessageSendButton.Click += new System.EventHandler(this.MessageSendButton_Click);
+            // 
+            // MessageTextBox
+            // 
+            this.MessageTextBox.AutoSize = true;
+            this.MessageTextBox.Location = new System.Drawing.Point(395, 459);
+            this.MessageTextBox.Name = "MessageTextBox";
+            this.MessageTextBox.Size = new System.Drawing.Size(18, 25);
+            this.MessageTextBox.TabIndex = 13;
+            this.MessageTextBox.Text = " ";
+            // 
+            // MessageLabel
+            // 
+            this.MessageLabel.AutoSize = true;
+            this.MessageLabel.Location = new System.Drawing.Point(395, 459);
+            this.MessageLabel.Name = "MessageLabel";
+            this.MessageLabel.Size = new System.Drawing.Size(18, 25);
+            this.MessageLabel.TabIndex = 14;
+            this.MessageLabel.Text = " ";
+            // 
+            // AICheckBox
+            // 
+            this.AICheckBox.AutoSize = true;
+            this.AICheckBox.Location = new System.Drawing.Point(17, 509);
+            this.AICheckBox.Name = "AICheckBox";
+            this.AICheckBox.Size = new System.Drawing.Size(236, 29);
+            this.AICheckBox.TabIndex = 16;
+            this.AICheckBox.Text = "Make Moves with AI";
+            this.AICheckBox.UseVisualStyleBackColor = true;
+            // 
+            // HostGameButton
+            // 
+            this.HostGameButton.Enabled = false;
+            this.HostGameButton.Location = new System.Drawing.Point(208, 288);
+            this.HostGameButton.Name = "HostGameButton";
+            this.HostGameButton.Size = new System.Drawing.Size(136, 48);
+            this.HostGameButton.TabIndex = 17;
+            this.HostGameButton.Text = "Host Game";
+            this.HostGameButton.UseVisualStyleBackColor = true;
+            this.HostGameButton.Click += new System.EventHandler(this.HostGameButton_Click);
+            // 
             // NIMForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1281, 550);
+            this.Controls.Add(this.HostGameButton);
+            this.Controls.Add(this.AICheckBox);
+            this.Controls.Add(this.MessageLabel);
+            this.Controls.Add(this.MessageTextBox);
+            this.Controls.Add(this.MessageSendButton);
+            this.Controls.Add(this.MessageTB);
+            this.Controls.Add(this.ForfeitButton);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.gameBox);
             this.Controls.Add(this.label2);
@@ -140,6 +220,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gameBox;
         private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.Button ForfeitButton;
+        private System.Windows.Forms.TextBox MessageTB;
+        private System.Windows.Forms.Button MessageSendButton;
+        private System.Windows.Forms.Label MessageTextBox;
+        private System.Windows.Forms.Label MessageLabel;
+        private System.Windows.Forms.CheckBox AICheckBox;
+        private System.Windows.Forms.Button HostGameButton;
     }
 }
 

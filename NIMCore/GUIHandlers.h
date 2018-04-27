@@ -3,6 +3,8 @@
 //GUI Handlers.h
 
 #include "NIMController.h"
+#include <sstream>
+#include <iomanip>
 
 const int SERVER_LIST_LENGTH = 10000;
 
@@ -19,13 +21,18 @@ struct BoardReturn
 	unsigned long long row9 = 0;
 };
 
-
 extern "C" __declspec(dllexport) void __stdcall GUI_getServerList(char serverList[]);
-extern "C" __declspec(dllexport) bool __stdcall GUI_challengeServer(int answer);
-extern "C" __declspec(dllexport) bool __stdcall GUI_setMyName(char name[]);
-extern "C" __declspec(dllexport) bool __stdcall GUI_isMyTurn();
-extern "C" __declspec(dllexport) bool __stdcall GUI_sendMessage(char message[]);
-extern "C" __declspec(dllexport) bool __stdcall GUI_getMessage(char message[], int length);
+extern "C" __declspec(dllexport) void __stdcall GUI_getClient(char clientName[]);
+extern "C" __declspec(dllexport) signed int __stdcall GUI_acceptClient();
+
+extern "C" __declspec(dllexport) signed int __stdcall GUI_gameStatus();
+extern "C" __declspec(dllexport) signed int __stdcall GUI_challengeServer(int answer);
+extern "C" __declspec(dllexport) signed int __stdcall GUI_setMyName(char name[]);
+extern "C" __declspec(dllexport) signed int __stdcall GUI_isMyTurn();
+extern "C" __declspec(dllexport) signed int __stdcall GUI_sendMessage(char message[]);
+extern "C" __declspec(dllexport) signed int __stdcall GUI_getMessage(char message[]);
 extern "C" __declspec(dllexport) BoardReturn __stdcall GUI_getBoard();
 extern "C" __declspec(dllexport) BoardReturn __stdcall GUI_getInitialBoard();
+extern "C" __declspec(dllexport) BoardReturn __stdcall  GUI_getAIMoveBoard();
 extern "C" __declspec(dllexport) bool __stdcall GUI_makeMove(int row, int number);
+

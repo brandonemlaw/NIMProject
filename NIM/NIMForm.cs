@@ -27,7 +27,7 @@ namespace NIM
         //Class attributes
         Mode currentMode = Mode.Waiting;
         NIM.BoardReturn currentBoard;
-        bool isOpponentsTurn = false;
+        string opponentName = "";
 
         public NIMForm()
         {
@@ -37,6 +37,9 @@ namespace NIM
             //Set the default text box name
             myNameTextBox.Text = Environment.UserName;
 
+            //Set name
+            NIMNetwork.GUI_setMyName(myNameTextBox.Text);
+
             //Run initial scan for servers
             ClientScanForServers();
 
@@ -45,13 +48,14 @@ namespace NIM
         void SelectMove(int row, int number)
         {
             NIMNetwork.GUI_makeMove(row, number);
-            currentBoard = NIMNetwork.GUI_getBoard();
-            isOpponentsTurn = true;
+            currentBoard.decreaseRow(row, (ulong)number);
             UpdateDisplayBoard();
         }
 
         void UpdateDisplayBoard()
         {
+            gameBox.Controls.Clear();
+
             for (int j = 0; j < 9; j++)
             {
                 ulong stonesInRow = currentBoard.getRow(j);
@@ -94,10 +98,71 @@ namespace NIM
         void MyUpdate()
         {
             //If we are operating as a client
-            if (currentMode == Mode.Waiting)
+            if (currentMode == Mode.Client)
             {
+                //check for messages
+                StringBuilder messageString = new StringBuilder(NIMNetwork.DATA_BUFFER_SIZE);
+                NIMNetwork.GUI_getMessage(messageString);
+                if (messageString.ToString() != "")
+                {
+                    MessageLabel.Text = messageString.ToString();
+                }
 
+
+                //check game status
+                int status = NIMNetwork.GUI_gameStatus();
+                if (status == 0)
+                {
+
+                    if (!NIMNetwork.GUI_isMyTurn())
+                    {
+                        statusLabel.Text = "Waiting for opponent.";
+                        gameBox.Enabled = false;
+                        currentBoard = NIMNetwork.GUI_getBoard();
+                        if (NIMNetwork.GUI_isMyTurn())
+                        {
+                            UpdateDisplayBoard();
+                        }
+                    }
+                    else
+                    {
+                        if (AICheckBox.Checked)
+                        {
+                            currentBoard = NIMNetwork.GUI_getAIMoveBoard();
+                            if (!NIMNetwork.GUI_isMyTurn())
+                            {
+                                UpdateDisplayBoard();
+                            }
+                        }
+                        else
+                        {
+                            statusLabel.Text = "Please make a move.";
+                            gameBox.Enabled = true;
+                        }
+
+                    }
+                }
+                else if (status == 1)
+                {
+                    endGame("Congrats! You won!");
+                }
+                else
+                {
+                    endGame("Sorry. You lost.");
+                }
             }
+        }
+
+        void endGame(string message)
+        {
+            System.Windows.Forms.MessageBox.Show(message);
+            statusLabel.Text = message; currentMode = Mode.Waiting;
+
+            serverListBox.Enabled = true;
+            connectButton.Enabled = true;
+            updateButton.Enabled = true;
+            ForfeitButton.Enabled = false;
+            MessageSendButton.Enabled = false;
         }
 
         void MyRender()
@@ -143,7 +208,7 @@ namespace NIM
 
         private void myNameTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            //TODO!!!
 
         }
 
@@ -155,12 +220,61 @@ namespace NIM
                 currentBoard = NIMNetwork.GUI_getInitialBoard();
                 statusLabel.Text = "Playing against " + serverListBox.SelectedItem.ToString();
                 UpdateDisplayBoard();
+                currentMode = Mode.Client;
+                serverListBox.Enabled = false;
+                connectButton.Enabled = false;
+                updateButton.Enabled = false;
+                HostGameButton.Enabled = false;
+                ForfeitButton.Enabled = true;
+                MessageSendButton.Enabled = true;
+
             }
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
             ClientScanForServers();
+        }
+
+        private void ForfeitButton_Click(object sender, EventArgs e)
+        {
+            NIMNetwork.GUI_forfeit();
+            endGame("You forfeited.");
+        }
+
+        private void MessageSendButton_Click(object sender, EventArgs e)
+        {
+            NIMNetwork.GUI_sendMessage(MessageTB.Text);
+            MessageTB.Text = "";
+        }
+
+        private void HostGameButton_Click(object sender, EventArgs e)
+        {
+            serverListBox.Enabled = false;
+            connectButton.Enabled = false;
+            updateButton.Enabled = false;
+            ForfeitButton.Enabled = false;
+            MessageSendButton.Enabled = false;
+            currentMode = Mode.Server;
+            StringBuilder clientName = new StringBuilder(NIMNetwork.MAX_NAME);
+            NIMNetwork.GUI_getClient(clientName);
+
+            if (NIMNetwork.GUI_acceptClient() == 1)
+            {
+                opponentName = clientName.ToString();
+                currentMode = Mode.Client;
+
+                serverListBox.Enabled = false;
+                connectButton.Enabled = false;
+                updateButton.Enabled = false;
+                HostGameButton.Enabled = false;
+                ForfeitButton.Enabled = true;
+                MessageSendButton.Enabled = true;
+
+            }
+
+
+
         }
     }
 }

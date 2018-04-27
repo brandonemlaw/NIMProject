@@ -45,12 +45,47 @@ namespace NIM
             }
             
         }
+        public ulong decreaseRow(int row, ulong n)
+        {
+            switch (row)
+            {
+                case 0:
+                    return row1 -= n;
+                case 1:
+                    return row2 -= n;
+                case 2:
+                    return row3 -= n;
+                case 3:
+                    return row4 -= n;
+                case 4:
+                    return row5 -= n;
+                case 5:
+                    return row6 -= n;
+                case 6:
+                    return row7 -= n;
+                case 7:
+                    return row8 -= n;
+                case 8:
+                    return row9 -= n;
+                default: return 0;
+            }
+
+        }
     };
 
     class NIMNetwork
     {
+        public static int DATA_BUFFER_SIZE = 2048;
+        public static int MAX_NAME = 2080;
+
         [DllImport(@"NIMCore.dll")]
         public static extern void GUI_getServerList(StringBuilder serverList);
+
+        [DllImport(@"NIMCore.dll")]
+        public static extern void GUI_getClient(StringBuilder clientName);
+
+        [DllImport(@"NIMCore.dll")]
+        public static extern int GUI_acceptClient();        
 
         [DllImport(@"NIMCore.dll")]
         public static extern bool GUI_challengeServer(int serverNumber);
@@ -65,16 +100,27 @@ namespace NIM
         public static extern bool GUI_sendMessage(string message);
 
         [DllImport(@"NIMCore.dll")]
-        public static extern bool GUI_getMessage(StringBuilder serverList, int length);
+        public static extern bool GUI_getMessage(StringBuilder serverList);
 
         [DllImport(@"NIMCore.dll")]
         public static extern BoardReturn GUI_getBoard();
+
+        [DllImport(@"NIMCore.dll")]
+        public static extern BoardReturn GUI_getAIMoveBoard();
+
 
         [DllImport(@"NIMCore.dll")]
         public static extern BoardReturn GUI_getInitialBoard();
 
         [DllImport(@"NIMCore.dll")]
         public static extern bool GUI_makeMove(int row, int number);
+
+
+        [DllImport(@"NIMCore.dll")]
+        public static extern int GUI_gameStatus();
+
+        [DllImport(@"NIMCore.dll")]
+        public static extern void GUI_forfeit();
 
     }
 }

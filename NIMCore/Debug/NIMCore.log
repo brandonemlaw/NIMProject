@@ -1,3 +1,5 @@
-﻿  NIMController.cpp
-c:\users\brandon\documents\github\nimproject\nimcore\nimcontroller.cpp(41): warning C4715: 'NIMController::getPacketFromOpponent': not all control paths return a value
+﻿  GUIHandlers.cpp
+  NIMController.cpp
+  Generating Code...
+     Creating library C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIMCore.lib and object C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIMCore.exp
   NIMCore.vcxproj -> C:\Users\Brandon\Documents\GitHub\NIMProject\NIM\Debug\NIMCore.dll

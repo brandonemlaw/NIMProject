@@ -13,6 +13,7 @@ c:\users\brandon\documents\github\nimproject\nimcore\debug\getipaddressinfo.obj
 c:\users\brandon\documents\github\nimproject\nimcore\debug\connectsock.obj
 c:\users\brandon\documents\github\nimproject\nimcore\debug\clientmain.obj
 c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcontroller.obj
+c:\users\brandon\documents\github\nimproject\nimcore\debug\guihandlers.obj
 c:\users\brandon\documents\github\nimproject\nim\debug\nimcore.dll
 c:\users\brandon\documents\github\nimproject\nim\debug\nimcore.ilk
 c:\users\brandon\documents\github\nimproject\nim\debug\nimcore.pdb
@@ -21,6 +22,8 @@ c:\users\brandon\documents\github\nimproject\nim\debug\nimcore.exp
 c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcore.tlog\cl.command.1.tlog
 c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcore.tlog\cl.read.1.tlog
 c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcore.tlog\cl.write.1.tlog
+c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcore.tlog\link.104.delete.1.tlog
+c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcore.tlog\link.7972.delete.1.tlog
 c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcore.tlog\link.command.1.tlog
 c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcore.tlog\link.read.1.tlog
 c:\users\brandon\documents\github\nimproject\nimcore\debug\nimcore.tlog\link.write.1.tlog

@@ -6,6 +6,9 @@
 #include <string>
 #include <bitset>
 #include <WinSock2.h>
+#include <time.h>
+#include <random>
+#include <sstream>
 
 class NIMController
 {
@@ -21,9 +24,24 @@ public:
 
 	std::string host;
 	std::string port;
+	std::string message;
 	std::bitset<5> board[9];
+	bool forfeit = false;
+
+	bool isOurTurn;
+
+
 	std::string getPacketFromOpponent();
+	bool sendPacketToOpponent(std::string data);
+
+	void removeRocks(int row, int number);
+
+	void initializeBoardHost();
 	bool getInitialBoard();
+	std::string selectAIMove();
+
+	void setToServer(bool server);
+
 
 private:
 	NIMController();
